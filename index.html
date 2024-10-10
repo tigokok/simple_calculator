@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tube Area Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1em;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tube Area Calculator</h1>
+    <p>Enter the diameter of the tube:</p>
+    <input type="number" id="diameter" placeholder="Diameter in cm" min="0">
+    <button onclick="calculateArea()">Calculate Area</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateArea() {
+            const diameter = document.getElementById('diameter').value;
+            const radius = diameter / 2;
+            const area = Math.PI * radius * radius;
+            
+            if (diameter && diameter > 0) {
+                document.getElementById('result').innerHTML = 
+                    `The area of the tube is ${area.toFixed(2)} cm².`;
+            } else {
+                document.getElementById('result').innerHTML = 
+                    'Please enter a valid diameter.';
+            }
+        }
+    </script>
+</body>
+</html>
